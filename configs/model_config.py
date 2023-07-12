@@ -43,7 +43,7 @@ llm_model_dict = {
     "chatglm-6b-int4": {
         "name": "chatglm-6b-int4",
         "pretrained_model_name": "THUDM/chatglm-6b-int4",
-        "local_model_path": None,
+        "local_model_path": "D:\LLM\models\chatglm2-6b-int4",
         "provides": "ChatGLM"
     },
     "chatglm-6b-int8": {
@@ -122,7 +122,7 @@ llm_model_dict = {
 }
 
 # LLM 名称
-LLM_MODEL = "chatglm-6b"
+LLM_MODEL = "chatglm-6b-int4"
 # 量化加载8bit 模型
 LOAD_IN_8BIT = False
 # Load the model with bfloat16 precision. Requires NVIDIA Ampere GPU.
@@ -137,6 +137,7 @@ USE_LORA = True if LLM_LORA_PATH else False
 # LLM streaming reponse
 STREAMING = True
 
+# note
 # Use p-tuning-v2 PrefixEncoder
 USE_PTUNING_V2 = False
 
@@ -146,6 +147,7 @@ LLM_DEVICE = "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mp
 # 知识库默认存储路径
 KB_ROOT_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "knowledge_base")
 
+# note
 # 基于上下文的prompt模版，请务必保留"{question}"和"{context}"
 PROMPT_TEMPLATE = """已知信息：
 {context} 
